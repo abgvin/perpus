@@ -1,12 +1,22 @@
 from django.shortcuts import render
 
 def buku(request):
-    judul = ['Belajar Django', 'Belajar Web', 'Belajar Python']
+    title = 'Books List'
+    books = ['Belajar Django', 'Belajar Web', 'Belajar Python']
     penulis = 'adam san'
 
-    konteks = {
-        'title' : judul,
+    datas = {
+        'title' : title,
+        'book' : books,
         'penulis' : penulis,
     }
 
-    return render(request, 'buku.html', konteks)
+    return render(request, 'buku.html', datas)
+
+def penerbit(request):
+    title = 'Penerbit'
+
+    datas = {
+        'title' : title
+    }
+    return render(request, 'penerbit.html', datas)

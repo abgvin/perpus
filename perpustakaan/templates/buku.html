@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Daftar Buku</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for title in book %}
+        <tr>
+          <td>{{ title }}</td>
+        </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
