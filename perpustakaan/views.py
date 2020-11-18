@@ -1,7 +1,12 @@
 from django.shortcuts import render
 
 def buku(request):
-    return render(request, 'buku.html')
+    judul = ['Belajar Django', 'Belajar Web', 'Belajar Python']
+    penulis = 'adam san'
 
-def penulis(request):
-    return HttpResponse('Halaman Penulis')
+    konteks = {
+        'title' : judul,
+        'penulis' : penulis,
+    }
+
+    return render(request, 'buku.html', konteks)
