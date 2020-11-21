@@ -2,9 +2,11 @@ from django.shortcuts import render
 from perpustakaan.models import Buku
 
 def buku(request):
+    page_title = 'Books'
     books = Buku.objects.all()
 
     datas = {
+        'page_title': page_title,
         'books': books,
     }
 

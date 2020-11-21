@@ -2,22 +2,21 @@
 
 {% block content %}
   <div class="container">
-    <h2>Daftar Buku</h2>
-      <table class="table table-bordered table-hover">
-        <thead>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for book in books %}
           <tr>
-            <th>Title</th>
-            <th>Author</th>
+            <td>{{ book.judul }}</td>
+            <td>{{ book.penulis }}</td>
           </tr>
-        </thead>
-        <tbody>
-        {% for book in books %}
-            <tr>
-              <td>{{ book.judul }}</td>
-              <td>{{ book.penulis }}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+      {% endfor %}
+      </tbody>
+    </table>
   </div>
 {% endblock %}
