@@ -1,14 +1,11 @@
 from django.shortcuts import render
+from perpustakaan.models import Buku
 
 def buku(request):
-    title = 'Books List'
-    books = ['Belajar Django', 'Belajar Web', 'Belajar Python']
-    penulis = 'adam san'
+    books = Buku.objects.all()
 
     datas = {
-        'title' : title,
-        'book' : books,
-        'penulis' : penulis,
+        'books': books,
     }
 
     return render(request, 'buku.html', datas)
