@@ -4,9 +4,16 @@
   <h4>Tambah Buku</h4>
   <div class="row">
     <div class="col-md-6">
-      <form action="" method="post">
+      {% if pesan %}
+       <div class="alert alert-success">{{ pesan }}</div>
+      {% endif %}
+      <form action="/tambah-buku/" method="post">
+        {% csrf_token %}
+
         {{ form.as_p }}
-        <button type="submit" class="btn btn-info btn-sm">Tambah Buku</button>
+
+        <button type="submit" class="btn btn-info btn-sm mr-3">Tambah Buku</button>
+        <button type="reset" class="btn btn-outline-danger btn-sm">Batal</button>
       </form>
     </div>
   </div>

@@ -24,11 +24,24 @@ def penerbit(request):
 def tambah_buku(request):
     page_title = 'Tambah Buku'
 
-    form = FormBuku()
+    if request.POST:
+        form = FormBuku(request.POST)
+        if form.is_valid():
+            form.save()
 
-    datas = {
-        'form': form,
-        'page_title': page_title,
-    }
+            form = FormBuku()
+            datas = {
+                'form': form,
+                'page_title': page_title,
+                'pesan': "Data berhasil disimpan"
+            }
+            return render(request, 'tambah_buku.html', datas)
+    else:
+        form = FormBuku()
+
+        datas = {
+            'form': form,
+            'page_title': page_title,
+        }
 
     return render(request, 'tambah_buku.html', datas)
