@@ -3,11 +3,14 @@
 {% block content %}
   <div class="container">
     <a href="/tambah-buku/" class="btn btn-primary btn-sm mb-5">Tambah Buku</a>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover table-striped">
       <thead>
         <tr>
-          <th>Title</th>
-          <th>Author</th>
+          <th>Judul</th>
+          <th>Penulis</th>
+          <th>Penerbit</th>
+          <th>Jumlah</th>
+          <th>Kelompok</th>
         </tr>
       </thead>
       <tbody>
@@ -15,6 +18,9 @@
           <tr>
             <td>{{ book.judul }}</td>
             <td>{{ book.penulis }}</td>
+            <td>{{ book.penerbit }}</td>
+            <td>{{ book.jumlah }} Buah</td>
+            <td>{{ book.kelompok }}</td>
           </tr>
       {% endfor %}
       </tbody>

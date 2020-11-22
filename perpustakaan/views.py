@@ -5,6 +5,7 @@ from perpustakaan.form import FormBuku
 def buku(request):
     page_title = 'Books'
     books = Buku.objects.all()
+    # ? books = Buku.objects.filter(kelompok__nama='Produktif')[:2]
 
     datas = {
         'page_title': page_title,
