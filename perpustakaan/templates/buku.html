@@ -2,7 +2,8 @@
 
 {% block content %}
   <div class="container">
-    <a href="/tambah-buku/" class="btn btn-primary btn-sm mb-5">Tambah Buku</a>
+    <h4>Data Buku</h4>
+    <a href="/tambah-buku/" class="btn btn-primary btn-sm mb-2">Tambah Buku</a>
     <table class="table table-bordered table-hover table-striped">
       <thead>
         <tr>
@@ -16,7 +17,7 @@
       <tbody>
       {% for book in books %}
           <tr>
-            <td>{{ book.judul }}</td>
+            <td><a href="{% url 'ubah_buku' book.id %}">{{ book.judul }}</a></td>
             <td>{{ book.penulis }}</td>
             <td>{{ book.penerbit }}</td>
             <td>{{ book.jumlah }} Buah</td>
