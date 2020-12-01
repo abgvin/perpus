@@ -2,7 +2,10 @@ from django.shortcuts import render, redirect
 from perpustakaan.models import Buku
 from perpustakaan.form import FormBuku
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
+@login_required(login_url=settings.LOGIN_URL)
 def ubah_buku(request, id_buku):
     buku = Buku.objects.get(id=id_buku)
     template = 'ubah-buku.html'
@@ -22,6 +25,7 @@ def ubah_buku(request, id_buku):
         }
     return render(request, template, konteks)
 
+@login_required(login_url=settings.LOGIN_URL)
 def buku(request):
     page_title = 'Books'
     books = Buku.objects.all()
@@ -33,6 +37,7 @@ def buku(request):
 
     return render(request, 'buku.html', datas)
 
+@login_required(login_url=settings.LOGIN_URL)
 def penerbit(request):
     title = 'Penerbit'
 
@@ -41,6 +46,7 @@ def penerbit(request):
     }
     return render(request, 'penerbit.html', datas)
 
+@login_required(login_url=settings.LOGIN_URL)
 def tambah_buku(request):
     page_title = 'Tambah Buku'
 
@@ -66,6 +72,7 @@ def tambah_buku(request):
 
     return render(request, 'tambah_buku.html', datas)
 
+@login_required(login_url=settings.LOGIN_URL)
 def hapus_buku(request, id_buku):
     buku = Buku.objects.filter(id=id_buku)
     buku.delete()
