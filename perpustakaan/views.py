@@ -22,7 +22,6 @@ def ubah_buku(request, id_buku):
         }
     return render(request, template, konteks)
 
-
 def buku(request):
     page_title = 'Books'
     books = Buku.objects.all()
@@ -66,3 +65,10 @@ def tambah_buku(request):
         }
 
     return render(request, 'tambah_buku.html', datas)
+
+def hapus_buku(request, id_buku):
+    buku = Buku.objects.filter(id=id_buku)
+    buku.delete()
+
+    messages.success(request, "Data berhasil dihapus")
+    return redirect('buku')

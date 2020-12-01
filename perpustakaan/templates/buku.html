@@ -4,6 +4,11 @@
   <div class="container">
     <h4>Data Buku</h4>
     <a href="/tambah-buku/" class="btn btn-primary btn-sm mb-2">Tambah Buku</a>
+    {% for message in  messages %}
+      {% if message %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endif %}
+    {% endfor %}
     <table class="table table-bordered table-hover table-striped">
       <thead>
         <tr>
@@ -12,6 +17,7 @@
           <th>Penerbit</th>
           <th>Jumlah</th>
           <th>Kelompok</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +28,29 @@
             <td>{{ book.penerbit }}</td>
             <td>{{ book.jumlah }} Buah</td>
             <td>{{ book.kelompok }}</td>
+            <td>
+              <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#hapus-{{ book.id }}">Hapus</button>
+            </td>
+
+            <div class="modal" id="hapus-{{ book.id }}">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div class="modal-title">
+                      <h3>Hapus Data</h3>
+                    </div>
+                  </div>
+                  <div class="modal-body">
+                    Hapus data <strong>{{ book.judul | upper }}</strong> ?
+                  </div>
+                  <div class="modal-footer">
+                    <a href="{% url 'hapus_buku' book.id %}" class="btn btn-danger">Hapus</a>
+                    <button class="btn btn-dark" data-dismiss="modal">Batal</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </tr>
       {% endfor %}
       </tbody>
