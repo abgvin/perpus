@@ -12,6 +12,7 @@
     <table class="table table-bordered table-hover table-striped">
       <thead>
         <tr>
+          <th>Cover</th>
           <th>Judul</th>
           <th>Penulis</th>
           <th>Penerbit</th>
@@ -23,6 +24,11 @@
       <tbody>
       {% for book in books %}
           <tr>
+            <td>
+             {% if book.cover %}
+              <img src="{{ book.cover.url }}" alt="{{ book.cover }}" width="100px">
+             {% endif %}
+            </td>
             <td><a href="{% url 'ubah_buku' book.id %}">{{ book.judul }}</a></td>
             <td>{{ book.penulis }}</td>
             <td>{{ book.penerbit }}</td>

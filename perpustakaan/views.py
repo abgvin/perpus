@@ -52,7 +52,7 @@ def tambah_buku(request):
     page_title = 'Tambah Buku'
 
     if request.POST:
-        form = FormBuku(request.POST)
+        form = FormBuku(request.POST, request.FILES)
         if form.is_valid():
             form.save()
 

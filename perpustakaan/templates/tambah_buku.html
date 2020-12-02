@@ -9,10 +9,10 @@
       {% if pesan %}
        <div class="alert alert-success">{{ pesan }}</div>
       {% endif %}
-      <form action="/tambah-buku/" method="post">
+      <form action="/buku/tambah/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
-        {{ form.as_p }}
+        {{ form|crispy }}
 
         <button type="submit" class="btn btn-info btn-sm mr-3">Tambah Buku</button>
         <button type="reset" class="btn btn-outline-danger btn-sm">Batal</button>
