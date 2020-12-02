@@ -4,6 +4,8 @@
   <div class="container">
     <h4>Data Buku</h4>
     <a href="/buku/tambah" class="btn btn-primary btn-sm mb-2">Tambah Buku</a>
+    <a href="/export/xls/" class="btn btn-secondary btn-sm mb-2">Export Data</a>
+
     {% for message in  messages %}
       {% if message %}
         <div class="alert alert-success">{{ message }}</div>
